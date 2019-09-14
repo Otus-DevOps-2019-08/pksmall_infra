@@ -6,7 +6,7 @@ class NumbersTest(unittest.TestCase):
         self.assertEqual(1 + 1, 2)
 
     def test_notequal(self):
-        self.assertNotEqual(1, 1)
+        self.assertNotEqual(2, 1)
 
     def test_gre(self):
         self.assertGreater(2, 1)
