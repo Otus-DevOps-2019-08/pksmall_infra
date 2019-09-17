@@ -5,6 +5,14 @@ pksmall Infra repository
 
 ## Branches
 
+### play travis
+
++ Создан новая ветка
++ Добавлен темплейт для заполнения при выполении ДЗ
++ Добавлен .travis.yml для работы с Trevis CI
++ Добавлен test.py для тестирование интеграции с Trevis CI
++ исправлен баг в test.py для безошибочного выполнения
+
 ### cloud-bastion
 
 bastion_IP = 35.207.129.152 
@@ -47,8 +55,4 @@ Host smi
 и теперь можно смело конектится к *someinternalhost* с помощь короткой команды:
 ```bash
 ssh smi
-``` 
-
-
-
-
+```
