@@ -5,6 +5,36 @@ pksmall Infra repository
 
 ## Branches
 
+###  cloud-testapp
+
+testapp_IP = 35.246.157.104
+testapp_port = 9292
+
++ Создан новая ветка
++ Создана директори *VPN и скрипты setupvpn.sh и *.ovpn перенесены.
++ Созданы 3 файла install_ruby.sh, install_mongodb.sh и  deploy.sh
++ Команда для запуска со starup_script:
+```bash
+gcloud compute instances create reddit-app \
+        --boot-disk-size=10GB \
+        --image-family ubuntu-1604-lts \ 
+        --image-project=ubuntu-os-cloud \
+        --machine-type=g1-small \
+        --tags puma-server \
+        --restart-on-failure \
+        startup-script=./startup_test_app.sh
+```
++ Команда для добавления правила в файрвол:
+```bash
+gcloud compute firewall-rules create puma-test-app \ 
+        --network default \
+        --action allow \
+        --direction ingress \ 
+        --rules tcp:9292 \
+        --source-ranges 0.0.0.0/0 \ 
+        --target-tags puma-server
+```
+
 ### play travis
 
 + Создан новая ветка
