@@ -1,6 +1,6 @@
 {
-   "gcp-proj-id": "",
-   "src-img-fml": "",
+   "gcp-proj-id": "aaa",
+   "src-img-fml": "ubnt",
    "mach-type": "f1-micro",
    "disk-size": "10",
    "disk-type": "pd-standard",
