@@ -5,6 +5,29 @@ pksmall Infra repository
 
 ## Branches
 
+###  packer-base
+
++ Создана новая ветка
++ Создана директори config-scripts и скрипты *.sh перенесены.
++ Перенесены  3 файла install_ruby.sh, install_mongodb.sh и  deploy.sh 
+  в директорию packer/script
++ Создан файл packer/ubuntu16.json
++ Запущен и выполнен процесс создания нового образа в GCP
++ Создан файл variables.json  с переменнными и ubuntu16.json поправлен
+  на использование онных.
++ Команда для запуска с переменными:
+```bash
+packer build -var-file=variables.json \
+             -var 'gcp-proj-id=my-project-id' \
+             -var 'src-img-fml=ubuntu-1604-lts' \
+             -var 'mach-type=f1-micro' \ 
+             ubuntu16.json
+```
++ Создан файл immutable.json для полного разварачивания приложения в инстанте.
++ Добавлены скрипты deploy.sh - для установки приложения и gen_systemd.py - для
+  запуска приложения через systemd в полной версии.
++ Создан скрипт config-scripts/create-redditvm.sh
+
 ###  cloud-testapp
 
 testapp_IP = 35.246.157.104
