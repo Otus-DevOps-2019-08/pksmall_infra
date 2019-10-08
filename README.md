@@ -2,6 +2,7 @@
 
 pksmall Infra repository
 
+[![Build Status](https://travis-ci.com/Otus-DevOps-2019-08/pksmall_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2019-08/pksmall_infra)
 
 ## Branches
 

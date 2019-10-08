@@ -8,7 +8,7 @@ resource "google_compute_instance" "app" {
   zone         = var.zone
   count        = "1"
 
-  tags = ["reddit-app", "http-server"s]
+  tags = ["reddit-app", "http-server"]
 
   boot_disk {
     initialize_params {
@@ -29,7 +29,7 @@ resource "google_compute_instance" "app" {
     ssh-keys = "appuser:${file(var.public_key_path)}appuser1:${file(var.public_key_path)}appuser2:${file(var.public_key_path)}"
   }
 
-/*  connection {
+  connection {
     type        = "ssh"
     host        = self.network_interface[0].access_config[0].nat_ip
     user        = "appuser"
@@ -58,7 +58,6 @@ resource "google_compute_instance" "app" {
       "ps xau | grep puma"
     ]
   }
-  */
 }
 
 resource "google_compute_firewall" "firewall_puma" {
