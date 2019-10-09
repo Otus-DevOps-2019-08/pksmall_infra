@@ -2,8 +2,17 @@
 
 pksmall Infra repository
 
+[![Build Status](https://travis-ci.com/Otus-DevOps-2019-08/pksmall_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2019-08/pksmall_infra)
 
 ## Branches
+
+###  terraform-2.
++ Создана новая ветка
++ Создал packer-ом два новых образа для app и db
++ Добавил модульность в структуру и создал две директории состояния stage и prod
++ Создал backet из модуля
++ Перенес state файлы тераформа в backet
++ Добавил файлы для провижинга и переменную окружения для подключения к db
 
 ###  terraform-1.
 + Создана новая ветка
