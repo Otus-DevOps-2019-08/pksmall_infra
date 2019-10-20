@@ -28,21 +28,25 @@ resource "google_compute_instance" "app" {
     # путь до публичного ключа
     ssh-keys = "appuser:${file(var.public_key_path)}appuser1:${file(var.public_key_path)}appuser2:${file(var.public_key_path)}"
   }
+}
+
+resource "null_resource" "app" {
+  count        = var.enable_provision ? "1" : "0"
 
   connection {
     type        = "ssh"
-    host        = self.network_interface[0].access_config[0].nat_ip
+    host        = google_compute_address.app_ip.address
     user        = "appuser"
     agent       = false
     private_key = "${file(var.private_key_path)}"
   }
 
   provisioner "file" {
-    source      = "files/gensysd.py"
+    source = "files/gensysd.py"
     destination = "/tmp/gensysd.py"
   }
   provisioner "file" {
-    source      = "${path.module}/files/set_env.sh"
+    source = "${path.module}/files/set_env.sh"
     destination = "/tmp/set_env.sh"
   }
   provisioner "remote-exec" {
@@ -59,6 +63,7 @@ resource "google_compute_instance" "app" {
     ]
   }
 }
+
 
 resource "google_compute_firewall" "firewall_puma" {
   name = "allow-puma-default"

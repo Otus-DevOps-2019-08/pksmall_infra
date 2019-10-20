@@ -12,3 +12,8 @@ variable mach_type {
   description = "Machine type"
   default = "f1-micro"
 }
+variable "enable_provision" {
+  description = "enable app and db provision"
+  type        = bool
+  default     = false
+}
