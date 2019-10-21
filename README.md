@@ -6,7 +6,7 @@ pksmall Infra repository
 
 ## Branches
 
-### ansible-1
+### ansible-2
 + Создана новая ветка
 + Передалал провижинг на переменную
 + Создал файлы для  ansible
