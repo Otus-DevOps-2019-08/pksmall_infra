@@ -19,3 +19,8 @@ variable "database_url" {
   description = "database_url for reddit app"
   default     = "127.0.0.1:27017"
 }
+variable "enable_provision" {
+  description = "enable app and db provision"
+  default     = false
+  type        = bool
+}

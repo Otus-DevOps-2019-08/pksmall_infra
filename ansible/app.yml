@@ -1,0 +1,29 @@
+# App
+- name: Configure app and run
+  become: true # <-- Выполнить задание от root
+  hosts: app
+  vars:
+    db_host: "{{ lookup('env','DBINTIP') }}"  # <-- DB Host local/public ip
+
+  tasks:
+    - debug: msg="{{ lookup('env','HOME') }} is an environment variable"
+
+    - name: Add unit file for Puma
+      copy:
+        src: files/puma.service
+        dest: /etc/systemd/system/puma.service
+      notify: reload puma
+
+    - name: enable puma
+      systemd: name=puma enabled=yes
+
+    - name: Add config for DB connection
+      template:
+          src: templates/db_config.j2
+          dest: /home/appuser/db_config
+          owner: appuser
+          group: appuser
+
+  handlers:
+    - name: reload puma
+      systemd: name=puma state=restarted

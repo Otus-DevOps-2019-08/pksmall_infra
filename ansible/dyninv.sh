@@ -6,8 +6,10 @@
 cd ../terraform/stage
 appip=$(terraform output app_external_ip)
 dbip=$(terraform output db_external_ip)
+dbintip=$(terraform output db_internal_ip)
 APPIP=`echo $appip | sed -e 's#[][",\\[ ]##g'`
 DBIP=`echo $dbip | sed -e 's#[][",\\[ ]##g'`
+DBINTIP=`echo $dbip | sed -e 's#[][",\\[ ]##g'`
 
 cd ../../ansible/
 cat inventory.json | sed "s/APPIP/${APPIP}/" | sed "s/DBIP/${DBIP}/"
