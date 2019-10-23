@@ -1,0 +1,14 @@
+# App
+- name: Configure app and run
+  become: true # <-- Выполнить задание от root
+  hosts: app
+
+  tasks:
+    - debug: var=hostvars['appserver']['ansible_host']
+    - debug: var=hostvars['dbserver']['ansible_host']
+    - debug: var=hostvars['dbintip']['ansible_host']
+    - debug: msg="This is in {{ env }} environment"
+
+  roles:
+    - app
+    - jdauphant.nginx

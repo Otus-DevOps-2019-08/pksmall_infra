@@ -6,6 +6,9 @@
             },
             "dbserver": {
                 "ansible_host": "DBIP"
+            },
+            "dbintip": {
+                    "ansible_host": "DBINTIP"
             }
         }
     },
@@ -23,6 +26,11 @@
     "db": {
         "hosts": [
             "dbserver"
+        ]
+    },
+    "int": {
+        "hosts": [
+            "dbintip"
         ]
     }
 }
