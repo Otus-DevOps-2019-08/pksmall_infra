@@ -1,0 +1,10 @@
+# DB
+- name: Configure db host and start mongodb
+  hosts: db
+  become: true
+
+  tasks:
+    - debug: msg="This is in {{ env }} environment"
+
+  roles:
+    - db

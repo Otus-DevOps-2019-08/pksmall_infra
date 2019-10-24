@@ -1,0 +1,36 @@
+{
+    "_meta": {
+        "hostvars": {
+            "appserver": {
+                "ansible_host": "APPIP"
+            },
+            "dbserver": {
+                "ansible_host": "DBIP"
+            },
+            "dbintip": {
+                    "ansible_host": "DBINTIP"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "app",
+            "db"
+        ]
+    },
+    "app": {
+        "hosts": [
+            "appserver"
+        ]
+    },
+    "db": {
+        "hosts": [
+            "dbserver"
+        ]
+    },
+    "int": {
+        "hosts": [
+            "dbintip"
+        ]
+    }
+}
